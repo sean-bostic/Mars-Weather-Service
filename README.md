@@ -1,48 +1,21 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Desktop (JVM).
+# Mars Weather Service
+Returns the weather data from NASA's open API ([https://science.nasa.gov/mission/insight/](https://api.nasa.gov/)) into a mobile application using a `demo_key`. 
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+<img width="445" height="893" alt="image" src="https://github.com/user-attachments/assets/5d7ad26c-5dd9-41f3-926a-048a8d8d22c9" />
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+The data is sourced from InSight Lander which was the first outer space robotic explorer to study in depth the inner space of Mars: its crust, mantle, and core.
 
-### Build and Run Android Application
+![insight](https://github.com/user-attachments/assets/2916d14a-78b2-4742-ab9a-b04849fe7e2e)
 
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
+# Kotlin/Compose Mutliplatform
+This is a Kotlin/Compose Multiplatform project targeting Android, iOS, Desktop (JVM) with a focus on separation of the different layers of `presentation`, `data`, and `domain`. `Koin` is used for dependancy injection.
 
-### Build and Run Desktop (JVM) Application
+## Functionality
+Returns a list of the past number of SOL weather data and provides a more detail view per SOL.
 
-To build and run the development version of the desktop app, use the run configuration from the run widget
-in your IDE’s toolbar or run it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:run
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:run
-  ```
+### Sol List
+<img width="445" height="893" alt="image" src="https://github.com/user-attachments/assets/8e9b8ac3-1b5b-4dcd-b213-33604913710b" />
 
-### Build and Run iOS Application
+### Sol Detail View
+<img width="448" height="897" alt="image" src="https://github.com/user-attachments/assets/77798495-d915-403f-9981-3c7d1abb9872" />
 
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
-
----
-
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
